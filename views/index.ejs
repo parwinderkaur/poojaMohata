@@ -24,7 +24,7 @@
   <ul class="ast_services_list">
     <% service.slice(0, 8).forEach(s => { %>
       <li>
-        <a href="<%= s.link || '#' %>" class="home_header_service" target="_blank">
+        <a href="/service-detail/<%= s._id %>" class="home_header_service" target="_blank">
           <img src="<%= s.image || 'images/content/home-service/default.jpg' %>" alt="<%= s.title %>"> 
           <h4><%= s.title %></h4>
         </a>
