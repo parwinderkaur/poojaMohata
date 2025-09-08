@@ -1,0 +1,95 @@
+<!--Breadcrumb start-->
+<div class="ast_pagetitle">
+  <div class="ast_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="page_title">
+          <h2><%= service.title %></h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <ul class="breadcrumb">
+          <li><a href="/">home</a></li>
+          <li>//</li>
+          <li><a href="/services">services</a></li>
+          <li>//</li>
+          <li><%= service.title %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Breadcrumb end-->
+
+<!--Blog section start-->
+<div class="ast_blog_wrapper ast_toppadder80 ast_bottompadder80">
+  <div class="container">
+    <div class="row">
+		
+
+      <!-- Sidebar -->
+      <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+        <div class="sidebar_wrapper">
+          <aside class="widget widget_categories">
+            <h4 class="widget-title">Other Services</h4>
+            <ul>
+              <% servicesList.forEach(function(item){ %>
+                <li>
+                  <a href="/service-detail/<%= item._id %>"><%= item.title %></a>
+                </li>
+              <% }) %>
+            </ul>
+          </aside>
+        </div>
+      </div>
+      <!-- Service Detail -->
+      <div class="col-lg-6 col-md-8 col-sm-12 col-12">
+        <div class="ast_blog_box">
+			<div class="ast_blog_info" style="text-align: center;">
+				<h3 class="ast_blog_info_heading"><%= service.title %></h3>
+			</div>
+          <div class="ast_blog_img" style="text-align: center;">
+            <% if(service.image){ %>
+              <img src="<%= service.image %>" alt="<%= service.title %>" style="max-width: 300px;">
+            <% } else { %>
+              <img src="/images/default-service.jpg" alt="service">
+            <% } %>
+          </div>
+          <div class="ast_blog_info" style="text-align: justify;">
+            <p class="ast_blog_info_details"><%- service.description %></p>
+          </div>
+        </div>
+      </div>
+	  	<div class="service_booking col-lg-3 col-md-4 col-sm-12 col-12">
+			
+
+			<!-- WhatsApp Book Now Button -->
+			<%
+				// Settings se WhatsApp link (agar full wa.me link diya hua hai to direct use karega)
+				const waLink = settings.whatsappLink 
+				? `${settings.whatsappLink}?text=${encodeURIComponent(`Hello, I am interested in booking the service: ${service.title} for ₹${service.price}`)}`
+				: "#";
+			%>
+			<!-- QR Code -->
+			<% if(settings.whatsappLink){ %>
+				<div style="margin-top:15px; text-align:center;">
+				<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=<%= encodeURIComponent(waLink) %>" 
+					alt="WhatsApp QR" />
+				<p>📲 Scan to Pay</p>
+				</div>
+			<% } %>
+			<% if(service.price){ %>
+				<h4>Price: ₹<%= service.price %></h4>
+			<% } %>
+
+			<a href="<%= waLink %>" target="_blank" class="ast_btn">
+				<i class="fa fa-whatsapp" style="font-size: x-large;"></i> Book Now
+			</a>
+
+			
+		</div>
+    </div>
+  </div>
+</div>
+<!--Blog section end-->

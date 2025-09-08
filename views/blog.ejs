@@ -1,0 +1,61 @@
+
+<!--Breadcrumb start-->
+<div class="ast_pagetitle">
+<div class="ast_img_overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="page_title">
+					<h2>blog</h2>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<ul class="breadcrumb">
+					<li><a href="/">home</a></li>
+					<li>//</li>
+					<li><a href="blog">blog</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Breadcrumb end-->
+<!--Blog section start-->
+<div class="ast_blog_wrapper ast_toppadder70 ast_bottompadder70">
+	<div class="container">
+		<div class="row">
+			<div class="row">
+				<% blogs.forEach(blog => { %>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+					<div class="ast_blog_box">
+						<div class="ast_blog_img">
+						<span class="ast_date_tag"><%= moment(blog.dateOfPost).format("DD MMMM, YYYY") %></span>
+						<a href="/blog-detail/<%= blog._id %>">
+							<img src="<%= blog.image %>" alt="Blog" title="<%= blog.title %>">
+						</a>
+						</div>
+						<div class="ast_blog_info">
+						<h3 class="ast_blog_info_heading">
+							<a href="/blog-detail/<%= blog._id %>"><%= blog.title %></a>
+						</h3>
+						<p class="ast_blog_info_details"><%= blog.shortDescription %></p>
+						<a class="ast_btn" href="/blog-detail/<%= blog._id %>">read more</a>
+						</div>
+					</div>
+					</div>
+				<% }) %>
+			</div>
+			<div class="ast_pagination">
+  <ul class="pagination">
+    <% for(let i=1; i <= totalPages; i++) { %>
+      <li>
+        <a class="<%= page === i ? 'active' : '' %>" href="/blogs?page=<%= i %>"><%= i %></a>
+      </li>
+    <% } %>
+  </ul>
+</div>
+
+		</div>
+	</div>
+</div>
+<!--Blog section end-->

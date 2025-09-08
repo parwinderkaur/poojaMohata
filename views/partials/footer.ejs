@@ -1,0 +1,79 @@
+<div class="ast_footer_wrapper ast_toppadder70 ast_bottompadder20">
+	<div class="container">
+		<div class="row">
+			<!-- Logo + About -->
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+				<div class="ast_footer_info">
+					<img src="<%= settings?.logoImage || '/images/header/logo.png' %>" alt="Logo">
+					<p><%= settings?.whatWeProvide || 'Your journey to self-discovery starts here.' %></p>
+					<ul>
+						<% if (settings?.facebookLink) { %>
+							<li><a href="<%= settings.facebookLink %>" target="_blank"><i class="fa fa-facebook  bg-facebook-o" aria-hidden="true"></i></a></li>
+						<% } %>
+						<% if (settings?.instagramLink) { %>
+							<li><a href="<%= settings.instagramLink %>" target="_blank"><i class="fa fa-instagram bg-instagram-o" aria-hidden="true"></i></a></li>
+						<% } %>
+						<% if (settings?.whatsappLink) { %>
+							<li><a href="<%= settings.whatsappLink %>" target="_blank"><i class="fa fa-whatsapp bg-whatsapp-o" aria-hidden="true"></i></a></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+
+
+			<!-- Services -->
+			<div class="col-lg-4 col-md-2 col-sm-6 col-12 footer_serives_quick_links">
+				<div class="widget text-widget">
+					<h4 class="widget-title">our services</h4>
+					<div class="ast_servicelink">
+						<ul>
+							<li><a href="/services">Vaastu Shastra</a></li>
+							<li><a href="/services">Astrology</a></li>
+							<li><a href="/services">Numerology</a></li>
+							<li><a href="/services">Tarot Reading</a></li>
+							<li><a href="/services">Spell Casting</a></li>
+						</ul>
+					</div>				
+				</div>			
+			</div>
+
+			<!-- Quick Links -->
+			<div class="col-lg-4 col-md-2 col-sm-6 col-12 footer_serives_quick_links">
+				<div class="widget text-widget">
+					<h4 class="widget-title">quick links</h4>
+					<div class="ast_sociallink">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/about">About</a></li>
+							<li><a href="/blogs">Blog</a></li>
+							<li><a href="/services">Services</a></li>
+							<li><a href="/contact">Contact</a></li>
+						</ul>
+					</div>				
+				</div>			
+			</div>
+
+			<!-- Contact Info -->
+			<div class="col-lg-4 col-md-4 col-sm-6 col-12">
+				<div class="widget text-widget">
+					<h4 class="widget-title">get in touch</h4>
+					<div class="ast_gettouch">
+						<ul>
+							<% if (settings?.address) { %>
+								<li><i class="fa fa-home" aria-hidden="true"></i> <p><%= settings.address %></p></li>
+							<% } %>
+							<% if (settings?.email) { %>
+								<li><i class="fa fa-at" aria-hidden="true"></i>
+									<a href="mailto:<%= settings.email %>"><%= settings.email %></a>
+								</li>
+							<% } %>
+							<% if (settings?.number) { %>
+								<li><i class="fa fa-phone" aria-hidden="true"></i> <p><%= settings.number %></p></li>
+							<% } %>
+						</ul>
+					</div>				
+				</div>			
+			</div>	
+		</div>	
+	</div>
+</div>

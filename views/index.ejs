@@ -1,0 +1,149 @@
+<style>
+  .shadow-sm{
+    box-shadow: 0 .125rem .25rem #ff6f00 !important;
+	}
+  </style>
+<!--Slider Start-->
+<% let sectionImage = sections[0]?.image ? sections[0].image : '../images/content/index/Vastu-shashtra1-.jpg'; %>
+<div class="ast_slider_wrapper style_2 ast_index_vastu" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<%= sectionImage %>')">
+	<div class="ast_banner_text">
+		<div class="container"></div>
+			<div class="ast_bannertext_wrapper"></div>
+				<h3><%= sections[0]?.title %></h3>
+				<h1><%= sections[0]?.description %></h1>
+				<a href="/contact" class="ast_btn">make it now</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Slider End-->
+
+
+<!--home service section Start--> 
+<div class="ast_home_services_section">
+  <ul class="ast_services_list">
+    <% service.slice(0, 8).forEach(s => { %>
+      <li>
+        <a href="<%= s.link || '#' %>" class="home_header_service" target="_blank">
+          <img src="<%= s.image || 'images/content/home-service/default.jpg' %>" alt="<%= s.title %>"> 
+          <h4><%= s.title %></h4>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+</div>
+<!--home service section End-->
+
+<!--Vastu Start-->
+<div class="ast_vastu_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="ast_vastu_info">
+          <h4><%= sections[1]?.title %></h4>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              <% if(sections[1]?.image) { %>
+                <img src="<%= sections[1].image %>" alt="<%= sections[1].title %>">
+              <% } else { %>
+                <img src="images/content/about/vastu_abt.jpg" alt="About">
+              <% } %>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              
+          <p><%= sections[1]?.description %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Vastu End-->
+<!-- Section 2: Two-column text with image -->
+<div class="ast_section_wrapper" style="background-color: #f9f9f9;">
+  <div class="container">
+    <div class="row align-items-center"  style="padding-top: 40px; padding-bottom: 40px;">
+      <div class="col-lg-6 col-md-12">
+        <h2><%= sections[2]?.title %></h2>
+        <p><%= sections[2]?.description %></p>
+      </div>
+      <div class="col-lg-6 col-md-12 text-center">
+        <% if(sections[2]?.image){ %>
+          <img src="<%= sections[2]?.image %>" alt="<%= sections[2]?.title %>" class="img-fluid rounded shadow-sm">
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: Feature Boxes with Icons -->
+<div class="ast_section_wrapper" style="background-color:white; padding-top: 40px; padding-bottom: 40px;">
+  <div class="container">
+    <h2 class="text-center mb-5"><%= sections[3]?.title %></h2>
+    <div class="row">
+      <% let features = sections[3]?.description.split('.'); %>
+      <% features.forEach(function(feature){ if(feature.trim() !== ''){ %>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="feature-box p-4 text-center shadow-sm h-100">
+            <i class="fa fa-star fa-2x mb-3" style="color: #ff6f00;"></i>
+            <p><%= feature.trim() %>.</p>
+          </div>
+        </div>
+      <% }}); %>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: Full-width background with overlay -->
+<div class="ast_section_wrapper ast_toppadder70 ast_bottompadder70" style="background: linear-gradient(#f9f9f9), url('<%= sections[4]?.image %>') center/cover no-repeat;">
+  <div class="container text-center">
+    <h2 class="display-5 mb-3"><%= sections[4]?.title %></h2>
+    <p class="lead mb-4"><%= sections[4]?.description %></p>
+    <a href="/contact" class="ast_btn ast_btn_light">Get Started</a>
+  </div>
+</div>
+
+<!-- Section 5: Grid cards layout -->
+<div class="ast_section_wrapper ast_toppadder70 ast_bottompadder70">
+  <div class="container">
+    <h2 class="text-center mb-5"><%= sections[5]?.title %></h2>
+    <div class="row">
+      <% let points = sections[5]?.description.split('.'); %>
+      <% points.forEach(function(point){ if(point.trim() !== ''){ %>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <p class="card-text"><%= point.trim() %>.</p>
+            </div>
+          </div>
+        </div>
+      <% }}); %>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonial Section Start -->
+<div class="ast_testimonial_wrapper ast_toppadder70 ast_bottompadder70" style="background:#f9f9f9;">
+  <div class="container">
+    <div class="ast_heading text-center mb-5">
+      <h1>What Our <span>Clients Say</span></h1>
+      <p>Here’s what people are saying about us</p>
+    </div>
+    <div class="row">
+      <% if(testimonials && testimonials.length > 0) { %>
+        <% testimonials.forEach(function(item){ %>
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="testimonial-box shadow-sm p-4 h-100 text-center">
+              <p class="mb-3">"<%= item.description %>"</p>
+              <h5 class="mb-0"><%= item.userName %></h5>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center">No testimonials available right now.</p>
+      <% } %>
+    </div>
+  </div>
+</div>
+<!-- Testimonial Section End -->

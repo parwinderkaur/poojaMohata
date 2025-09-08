@@ -1,0 +1,120 @@
+<!-- Breadcrumb Start -->
+<div class="ast_pagetitle">
+  <div class="ast_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="page_title">
+          <h2>About Us</h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <ul class="breadcrumb">
+          <li><a href="/">home</a></li>
+          <li>//</li>
+          <li><a href="/about">About us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- About Us Start -->
+<div class="ast_about_wrapper ast_about_wrapper_01">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-12 col-12">
+        <div class="ast_about_info_img">
+          <img src="<%= settings.aboutImage %>" alt="About">
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-7 col-sm-12 col-12">
+        <div class="ast_about_info">
+          <h4><%= settings.aboutMe %></h4>
+          <p><%= settings.aboutDescription %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About Us End -->
+
+<!-- Why Choose Us Start -->
+<div class="ast_whywe_wrapper ast_toppadder70 ast_bottompadder70">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ast_heading">
+          <h1>Why <span>Choose Us</span></h1>
+          <p>There are many variations of passages of Lorem Ipsum available...</p>
+        </div>
+      </div>
+      <div class="ast_whywe_info row">
+        <% const whyChoose = [
+          { img: 'ww_1.png', text: '90+ Expert Astrologers' },
+          { img: 'ww_2.png', text: '24x7, 365 Days Availability' },
+          { img: 'ww_3.png', text: 'Instant Access Worldwide' },
+          { img: 'ww_4.png', text: 'Accurate Remedial Solutions' },
+          { img: 'ww_5.png', text: 'Privacy Guaranteed' },
+          { img: 'ww_6.png', text: 'Trusted by million+ clients' }
+        ]; %>
+        <% whyChoose.forEach(item => { %>
+          <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <div class="ast_whywe_info_box">
+              <span><img src="images/content/<%= item.img %>" alt=""></span>
+              <div class="ast_whywe_info_box_info">
+                <p><%= item.text %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Why Choose Us End -->
+
+<!-- Testimonials Start -->
+<div class="ast_testimonial_wrapper ast_toppadder70 ast_bottompadder70">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ast_heading">
+          <h1>What Client<span> Says</span></h1>
+          <!-- <p>There are many variations of passages of Lorem Ipsum available...</p> -->
+        </div>
+      </div>
+      <div class="col-lg-10 offset-lg-1">
+        <div class="ast_testimonials_slider">
+          <div class="owl-carousel owl-theme">
+            <% if(testimonial && testimonial.length > 0){ %>
+              <% testimonial.forEach(t => {  %>
+                <div class="item">
+                <div class="ast_testimonials_slider_box">
+                  <img src="images/content/ww_1.png" alt="Testimonial" style="background-color: #ff6f00;">
+                  <div class="ast_testimonials_slider_box_text">
+                    <p><%= t.description %></p>
+                    <h4><%= t.userName %>, <span>client</span></h4>
+                  </div>
+                </div>
+              </div>
+              <% }) %>
+            <% } else { %>
+              <div class="item">
+                <div class="ast_testimonials_slider_box">
+                  <img src="images/content/ww_1.png" alt="Testimonial" style="background-color: #ff6f00;">
+                  <div class="ast_testimonials_slider_box_text">
+                    <p>No testimonials available yet.</p>
+                    <h4>Admin</h4>
+                  </div>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Testimonials End -->
